@@ -1,14 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.media.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml" fx:controller="com.mycompany.mlibrary.FXMLController">
-    <children>
-        <Button layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
-        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
-    </children>
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mlibrary.FXMLController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Soubor">
+            <items>
+              <MenuItem fx:id="selectFile" mnemonicParsing="false" text="Přidat soubor" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Upravit">
+            <items>
+              <MenuItem fx:id="removeItem" mnemonicParsing="false" text="Odstranit položku" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Interpret" />
+            <ChoiceBox id="Finterpret" fx:id="filterInterpret" prefWidth="150.0" />
+            <Label text="Album" />
+            <ChoiceBox id="Falbum" fx:id="filterAlbum" layoutX="10.0" layoutY="27.0" prefWidth="150.0" />
+            <Label text="Rok" />
+            <ChoiceBox id="Frok" fx:id="filterYear" layoutX="10.0" layoutY="66.0" prefWidth="150.0" />
+            <Label text="Žánr" />
+            <ChoiceBox id="Fzanr" fx:id="filterGenre" layoutX="10.0" layoutY="105.0" prefWidth="150.0" />
+            <Accordion />
+            <HBox prefHeight="100.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+              <items>
+                  <TextField id="FHledejText" fx:id="searchBox" promptText="Hledej" />
+                <Button id="FHledejButton" fx:id="searchButton" mnemonicParsing="false" text="Hledej" />
+              </items>
+            </ToolBar>
+            <TableView fx:id="tableView" VBox.vgrow="ALWAYS">
+               <columns>
+                  <TableColumn id="Dskladba" fx:id="trackNumber" prefWidth="79.0" text="Skladba Č." />
+                  <TableColumn id="Dnazev" fx:id="name" prefWidth="71.0" text="Název" />
+                  <TableColumn id="Dinterpret" fx:id="interpret" prefWidth="75.0" text="Interpret" />
+                  <TableColumn id="Dalbum" fx:id="album" prefWidth="75.0" text="Album" />
+                  <TableColumn id="Drok" fx:id="year" prefWidth="75.0" text="Rok" />
+                  <TableColumn id="Dzanr" fx:id="genre" prefWidth="75.0" text="Žánr" />
+                  <TableColumn id="Ddelka" fx:id="length" prefWidth="75.0" text="Délka" />
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
